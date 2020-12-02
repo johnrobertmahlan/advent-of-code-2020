@@ -5,10 +5,10 @@ newerarr = Array.new
 reallynewarr = Array.new
 
 find_three_sums = lambda do |arr|
-  arr.map {|num| 
+  arr.each do |num| 
     newnum = 2020 - num
     newerarr.push(newnum)
-  }
+  end
   arr.each do |num|
     newerarr.each do |num2|
       if arr.any? {|x| x + num == num2}
