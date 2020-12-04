@@ -7,20 +7,20 @@ count = 0
 grid = Hash.new
 
 File.open("input.txt", "r") do |f|
-    f.each_line do |line|
-        grid[count] = line.gsub("\n", "")
-        count += 1
-        length = line.length
-    end
+  f.each_line do |line|
+      grid[count] = line.gsub("\n", "")
+      count += 1
+      length = line.length
+  end
 end
 
 grid.each do |key, value|
-    if idx < grid[key].length
-      new_position = grid[key][idx]
+    if idx < length
+      new_position = value[idx]
       new_position == '.' ? spaces += 1 : trees += 1
     else
       idx = idx - length
-      new_position = grid[key][idx]
+      new_position = value[idx]
       new_position == '.' ? spaces += 1 : trees += 1
     end
     idx += 3
@@ -30,4 +30,3 @@ grid.each do |key, value|
 end
   
 p trees
-# p grid
